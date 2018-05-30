@@ -1,0 +1,74 @@
+<h1 class="text-center">
+  <b>NBITS -- Google Map Locater</b>
+</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <div *ngIf="locationChosen">
+        <h3>The coordinates you are choosen are</h3>
+        {{latitude}}
+        <br> {{longitude}}
+      </div>
+    </div>
+    <div class="col">
+      <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)='onChoseLocation($event)'>
+        <!-- <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker> -->
+        <agm-marker *ngIf="locationChosen" [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+
+
+</div>
+<br><br>
+<div class="container text-center">
+  <h3>Input/output generic drop down</h3>
+  <app-dropdown (messageEvent)="receivedMsg($event)" [dataList]='countries'></app-dropdown>
+
+</div>
+<br>
+<br>
+<div class="form-group">
+  <label for="dob">
+      <b>Date Of Birth</b>
+  </label>
+  <p-calendar [(ngModel)]="value" [inline]="false"></p-calendar>
+</div>
+
+<div class="form-group">
+  <label for="dob">
+      <b>Phone number</b>
+  </label>
+  <p-inputMask [(ngModel)]="val" mask="99-9999"></p-inputMask>
+</div>
+<br>
+
+<app-validations></app-validations>
+
+
+<h1>This is test data result table</h1>
+
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">S .No</th>
+            <th scope="col">User id</th>
+            <th scope="col">Id Number</th>
+            <th scope="col">Title</th>
+            <th scope="col">Matter</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of testArray">
+            <td>{{p.index}}</td>
+            <td>{{p.userId}}</td>
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.body}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>

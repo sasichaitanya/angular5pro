@@ -1,0 +1,5 @@
+<select (click)="sendMessage()" [(ngModel)]="selectedOption">
+  <option *ngFor="let d of dataList" value="{{d.value}}" >
+    {{d.text}} 
+  </option>
+</select>

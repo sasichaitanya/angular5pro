@@ -1,0 +1,31 @@
+<!-- <br>
+<div class="col-md-4 offset-md-4 text-center">
+    <input type="text" class="form-control" placeholder="Search Here">
+</div>
+<br> -->
+<div class="container">
+    <table class="table">
+        <thead class="thead table-color">
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Model</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let p of indexedProducts">
+                <td>{{p.index}}</td>
+                <td>{{p.brand}}</td>
+                <td>{{p.model}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.price*p.quantity}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

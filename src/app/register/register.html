@@ -1,0 +1,85 @@
+<div class="col-md-4 offset-md-7 col">
+    <br>
+    <h2>
+        <b>Registration Form</b>
+    </h2>
+    <br>
+    <div class="form-group">
+        <label for="firstName">
+            <b>First Name</b>
+        </label>
+        <input type="text" [(ngModel)]="details.firstName" class="form-control" id="firstName" placeholder="enter your first name">
+    </div>
+    <div class="form-group">
+        <label for="lastName">
+            <b>Last Name</b>
+        </label>
+        <input type="text" [(ngModel)]="details.lastName" class="form-control" id="lastName" placeholder="enter your last name">
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">
+            <b>Phone Number</b>
+        </label>
+        <input numberOnly type="text" [(ngModel)]="details.phoneNumber" class="form-control" id="phoneNumber" placeholder="enter your last name">
+    </div>
+    <div class="form-group">
+        <label for="userName">
+            <b>User Name</b>
+        </label>
+        <input type="text" [(ngModel)]="details.userName" class="form-control" id="userName" placeholder="enter your last name">
+    </div>
+    <div class="form-group">
+        <label for="Email">
+            <b>Email</b>
+        </label>
+        <input type="text" [(ngModel)]="details.Email" class="form-control" id="Email" placeholder="enter your email">
+    </div>
+    <div class="form-group">
+        <label for="password">
+            <b>Password</b>
+        </label>
+        <input type="password" [(ngModel)]="details.password" class="form-control" id="password" placeholder="enter your password">
+    </div>
+    <div class="form-group">
+        <label for="dob">
+            <b>Date Of Birth</b>
+        </label>
+        <input type="date" [(ngModel)]="details.dateOfBirth" class="form-control" id="dob" placeholder="enter your date of birth">
+    </div>
+    <div class="form-group">
+        <label for="gender">
+            <b>Gender</b>
+        </label>
+        <div id="gender">
+            <input type="radio" [(ngModel)]="details.gender" value="M" name="gener">Male
+            <input type="radio" [(ngModel)]="details.gender" value="F" name="gener">Female
+            <input type="radio" [(ngModel)]="details.gender" value="DDC" name="gener">Don't disclose
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="country">
+            <b>Country</b>
+        </label>
+        <div>
+            <select class="form-control" [(ngModel)]="details.country">
+                <option *ngFor="let c of countries" value="{{c.code}}">{{c.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-check mar-botm">
+        <input type="checkbox" [(ngModel)]="details.agree" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Agree to terms and conditions</label>
+    </div>
+    <br>
+    <div>
+        <button type="submit" (click)="register()" class="btn btn-primary">Submit</button>
+    </div>
+
+    <div class="alert alert-success" *ngIf="Success">
+        <strong>Success!</strong> User registered sucessfully.
+    </div>
+    <div class="alert alert-danger" *ngIf="Failure">
+        <strong>Something wrong please Try again!!!</strong>
+    </div>
+</div>

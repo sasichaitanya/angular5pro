@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Template Validations Component</h2>
+  <form #myForm="ngForm" novalidate>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="email"
+       name="EMAIL" #EMAIL="ngModel" placeholder="Enter email"
+        required minlength="4">
+    </div>
+    <!-- <span class="text-danger" *ngIf="EMAIL.invalid">email invalid</span> -->
+    <span class="text-danger" *ngIf="EMAIL.errors?.required">email required</span>
+    <span class="text-danger" *ngIf="EMAIL.errors?.minlength">Minimum length is 4</span>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" 
+      [(ngModel)]="password" name="PASSWORD" #PASSWORD="ngModel"
+        placeholder="Enter Password" required>
+    </div>
+    <span class="text-danger" *ngIf="PASSWORD.invalid">password required</span>
+
+    <div>
+      <button type="submit" class="btn btn-primary" (click)="submit(myForm)">Submit</button>
+
+    </div>
+  </form>
+
+</div>
+<br>
+<br>
+<div class="container">
+  <h2>Reactive form validations</h2>
+  <form [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" 
+      formControlName="email">
+    </div>
+    <div *ngIf="showErrors">
+      <span class="text-danger" *ngIf="loginForm.controls.email.errors?.required">Email required</span>
+      <span class="text-danger" *ngIf="loginForm.controls.email.errors?.pattern">Please enter correct email pattern</span>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" 
+      formControlName="password">
+    </div>
+    <!-- <div *ngIf="showErrors"> -->
+    <span class="text-danger" *ngIf="loginForm.controls.password.errors?.required">Password required</span>
+    <span class="text-danger" *ngIf="loginForm.controls.password.errors?.maxLength">Password min length shud be 5</span>
+    <!-- </div> -->
+
+    <div>
+      <button type="submit" (click)="reactSubmit()" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+</div>

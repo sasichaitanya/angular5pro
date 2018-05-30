@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">S .No</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Created Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of indexedProfiles | paginate: { itemsPerPage: 15, currentPage: p }" (click)="getProfileByRow(p)">
+                        <td>{{p.index}}</td>
+                        <td>{{p.firstName|uppercase}}</td>
+                        <td>{{p.lastName|lowercase}}</td>
+                        <td>{{p.userName|titleCase}}</td>
+                        <!-- custom parameterised pipe phnFormat:'IN'-->
+                        <td>{{p.phoneNumber|phnFormat:'IN'}}</td>
+                        <td>{{p.CreatedDate|date:'dd/MMMM/yyyy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+
+        <div class="col-6 text-center" *ngIf="selectedProfile">
+            <br>
+            <h3 class="head-color">User Details</h3>
+            <hr>
+            <h3><b>First Name :</b> {{selectedProfile.firstName}}</h3>
+            <h3><b>Last Name : </b>{{selectedProfile.lastName}}</h3>
+            <h3><b>Gender :</b> {{selectedProfile.gender}}</h3>
+            <h3><b>Age : </b>{{selectedProfile.age}}</h3>
+            <h3><b>Phone Number : </b>{{selectedProfile.phoneNumber}}</h3>
+            <h3><b>User Name : </b>{{selectedProfile.userName}}</h3>
+            <h3><b>Country :</b> {{selectedProfile.country}}</h3>
+            <h3><b>Created Date : </b>{{selectedProfile.CreatedDate}}</h3>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<profiledetails *ngIf="selectedProfile" [selectedProfile]="selectedItem">
+    
+</profiledetails>

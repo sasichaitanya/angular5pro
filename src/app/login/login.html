@@ -1,0 +1,26 @@
+<div class="col-md-4 offset-md-7">
+    <br>
+    <h2><b>Login Form</b></h2>
+    <div class="form-group">
+        <label for="userName"><b>User Name</b></label>
+        <input simple type="text" class="form-control" id="userName" aria-describedby="emailHelp" 
+        [(ngModel)]="loginDetails.userName" placeholder="Enter user name">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1"><b>Password</b></label>
+        <input simple type="password" class="form-control" id="exampleInputPassword1" 
+        [(ngModel)]="loginDetails.password" placeholder="Password">
+    </div>
+    <div class="form-check mar-botm">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Agree </label>
+    </div>
+    <div>
+        <button type="submit" (click)="login()" class="btn btn-primary">Submit</button>
+    </div>
+
+    <div class="alert" *ngIf="message">
+        <strong>Response!</strong> {{message}}.
+    </div>
+    
+</div>
