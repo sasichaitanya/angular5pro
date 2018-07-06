@@ -13,7 +13,7 @@ export class NumberOnlyDirective{
             this.el.nativeElement.style="background:yellow";
             return true;
         }else{
-            this.el.nativeElement.style="background:pink";
+            this.el.nativeElement.style="background:red";
             return false;
         }
     }

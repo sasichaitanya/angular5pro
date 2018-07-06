@@ -13,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let p of indexedProfiles | paginate: { itemsPerPage: 15, currentPage: p }" (click)="getProfileByRow(p)">
+                    <tr *ngFor="let p of indexedProfiles | paginate: { itemsPerPage: 10, currentPage: p }" (click)="getProfileByRow(p)">
                         <td>{{p.index}}</td>
                         <td>{{p.firstName|uppercase}}</td>
                         <td>{{p.lastName|lowercase}}</td>
@@ -24,7 +24,7 @@
                     </tr>
                 </tbody>
             </table>
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls (pageChange)="p= $event"></pagination-controls>
         </div>
 
         <div class="col-6 text-center" *ngIf="selectedProfile">

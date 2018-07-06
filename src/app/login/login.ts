@@ -35,11 +35,11 @@ export class LoginComponent {
         this.dataSvc.loginUser(this.loginDetails)
             .subscribe((result:any) => {
                 console.log("data in http login result", result);
-                try{
-                    JSON.stringify(result);
-                }catch(ex){
-                    //if failed not a valid json
-                }
+                // try{
+                //     JSON.stringify(result);
+                // }catch(ex){
+                //     //if failed not a valid json
+                // }
                 if(result.token){
                     localStorage.setItem('authToken',result.token);
                     this.pubsubSvc.pubLoginStatus("userLoggedIn");

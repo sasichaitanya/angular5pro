@@ -15,10 +15,9 @@ export class SimpleDirective{
         this.el.nativeElement.style="background:yellow";
     }
 
-    @HostListener('mouseleave',['$event.target'])
+    @HostListener('mouseleave',['$event'])
     mouseLeaved(e){
         this.el.nativeElement.style="background:green";
-
     }
 
 

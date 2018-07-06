@@ -4,7 +4,7 @@ import { DataService } from '../services/data.service';
 
 @Component({
     selector: 'profiles',
-    templateUrl: './profiles.html',
+    templateUrl: './profiles.html', 
     styleUrls: ['./profiles.css']
 })
 
